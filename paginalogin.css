@@ -89,6 +89,7 @@
   border-color: var(--dl-color-theme-neutral-dark);
   border-style: hidden;
   border-width: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .headerroot-class-name {
   top: 0px;
@@ -333,6 +334,7 @@
   border-style: hidden;
   border-width: 1px;
   padding-bottom: var(--dl-space-space-twounits);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .paginalogin-form {
   top: var(--dl-space-space-fourunits);
