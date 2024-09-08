@@ -1,0 +1,105 @@
+.carnedeboicard-carnedeboicard {
+  width: 346px;
+  height: 367px;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  align-self: flex-end;
+  align-items: stretch;
+  padding-right: var(--dl-space-space-unit);
+  flex-direction: column-reverse;
+  background-color: #ffffff;
+}
+.carnedeboicard-containerboi {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 70%;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.carnedeboicard-image {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  align-self: center;
+  object-fit: cover;
+  border-color: var(--dl-color-theme-neutral-dark);
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-buttonradius);
+}
+.carnedeboicard-fragment {
+  display: contents;
+}
+.carnedeboicard-text2 {
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  bottom: 0px;
+  margin: auto;
+  display: inline-block;
+  position: absolute;
+  align-self: center;
+  text-align: left;
+  padding-top: var(--dl-space-space-halfunit);
+  padding-left: var(--dl-space-space-twounits);
+  padding-right: var(--dl-space-space-twounits);
+  padding-bottom: var(--dl-space-space-halfunit);
+  text-decoration: none;
+}
+.carnedeboicardroot-class-name {
+  left: 0px;
+  bottom: -5px;
+  margin: auto;
+  position: absolute;
+}
+.carnedeboicardroot-class-name1 {
+  left: 0px;
+  right: 0px;
+  bottom: -5px;
+  margin: auto;
+  position: absolute;
+  align-self: flex-end;
+}
+.carnedeboicardroot-class-name2 {
+  right: 0px;
+  bottom: -5px;
+  position: absolute;
+  align-self: flex-end;
+}
+@media(max-width: 479px) {
+  .carnedeboicardroot-class-name {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    position: absolute;
+    align-self: center;
+  }
+  .carnedeboicardroot-class-name1 {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    position: absolute;
+    align-self: center;
+  }
+  .carnedeboicardroot-class-name2 {
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    position: static;
+    align-self: center;
+  }
+}
