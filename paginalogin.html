@@ -136,29 +136,20 @@
     const telefone = document.getElementById('telefonelogin').value;
     const senha = document.getElementById('senhalogin').value;
 
-    fetch('cadastros.txt')
-        .then(response => response.text())
-        .then(text => {
-            const linhas = text.split('\n');
-            let loginValido = false;
+    const telefoneCorreto = '246813579';
+    const senhaCorreta = 'S&gredo';
 
-            for (let linha of linhas) {
-                const [telefoneRegistrado, senhaRegistrada] = linha.split('|');
-                if (parseInt(telefoneRegistrado, 10) === parseInt(telefone, 10) && senha === senhaRegistrada) {
-                    loginValido = true;
-                    break;
-                }
-            }
-
-            if (loginValido) {
-                window.location.href = 'https://rolladie.net/';
-            } else {
-                alert('Telefone ou senha incorretos.');
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao ler o arquivo de cadastros:', error);
-        });
+    if (telefone === telefoneCorreto && senha === senhaCorreta) {
+        window.location.href = 'https://rolladie.net/';
+    } else {
+        if (telefone !== telefoneCorreto) {
+            alert('Telefone incorreto.');
+        } else if (senha !== senhaCorreta) {
+            alert('Senha incorreta.');
+        } else {
+            alert('Telefone e senha incorretos.');
+        }
+    }
 });
 
 </script>
