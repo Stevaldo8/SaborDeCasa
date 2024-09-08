@@ -141,7 +141,7 @@
                 class="paginasignup-textinput2 input"
               />
             </form>
-            <script>
+           <script>
     function validarCadastro() {
         var nome = document.getElementById('nomecompleto').value.trim();
         var telefone = document.getElementById('telefone').value.trim();
@@ -167,18 +167,8 @@
             return;
         }
 
-        // Formato de texto para salvar no arquivo
-        var cadastro = `'${nome}' | '${telefone}' | '${senha}' ||\n`;
-
-        // Escrever no arquivo cadastros.txt (não possível diretamente via JavaScript puro)
-        salvarCadastro(cadastro);
-    }
-
-    function salvarCadastro(cadastro) {
-        // Aqui você precisaria de um backend (servidor ou API) para escrever no arquivo
-        // O JavaScript rodando no browser não pode diretamente manipular arquivos no GitHub.
-        // Uma solução seria usar uma API backend em Node.js ou outra linguagem para escrever no arquivo.
-        alert("Cadastro: " + cadastro);
+        // Exibir a mensagem após validação
+        alert("Por limitações do GitHub, o cadastro não pode ser feito.\nCadastro teste: 'Meu Nome Da Silva' e senha: 'S&gredo'");
     }
 </script>
           </div>
