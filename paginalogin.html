@@ -130,6 +130,37 @@
                 class="paginalogin-textinput2 input"
               />
             </form>
+            <script>
+    function validarLogin() {
+        var telefoneLogin = document.getElementById('telefonelogin').value.trim();
+        var senhaLogin = document.getElementById('senhalogin').value.trim();
+
+        // Pegar os cadastros armazenados no LocalStorage
+        var cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
+
+        // Verificar se o telefone e a senha correspondem a algum cadastro
+        var usuarioEncontrado = cadastros.find(function(cadastro) {
+            return cadastro.telefone === telefoneLogin && cadastro.senha === senhaLogin;
+        });
+
+        // Se o usuário for encontrado, redirecionar para o site
+        if (usuarioEncontrado) {
+            alert('Login bem-sucedido! Redirecionando...');
+            window.location.href = 'https://rolladie.net/';
+        } else {
+            // Exibir erro adequado
+            var usuarioExistente = cadastros.find(function(cadastro) {
+                return cadastro.telefone === telefoneLogin;
+            });
+
+            if (usuarioExistente) {
+                alert('Senha incorreta. Tente novamente.');
+            } else {
+                alert('Usuário não encontrado. Verifique o telefone e tente novamente.');
+            }
+        }
+    }
+</script>
           </div>
         </div>
       </div>
