@@ -104,62 +104,63 @@
               class="paginalogin-image"
             />
             <span class="paginalogin-text5 h4">Entrar em sua conta</span>
-            <form id="=" enctype="text/plain" class="paginalogin-form">
-              <button
-                id="Entre"
-                type="button"
-                class="paginalogin-button button"
-              >
-                <span class="paginalogin-text6 botao">
-                  <span>Entre</span>
-                  <br />
-                </span>
-              </button>
-              <input
-                type="text"
-                id="telefonelogin"
-                required="true"
-                placeholder="telefone"
-                class="paginalogin-textinput1 input"
-              />
-              <input
-                type="text"
-                id="senhalogin"
-                required="true"
-                placeholder="senha"
-                class="paginalogin-textinput2 input"
-              />
-            </form>
+           <form id="loginForm" enctype="text/plain" class="paginalogin-form">
+    <button
+        id="Entre"
+        type="button"
+        class="paginalogin-button button"
+    >
+        <span class="paginalogin-text6 botao">
+            <span>Entre</span>
+            <br />
+        </span>
+    </button>
+    <input
+        type="text"
+        id="telefonelogin"
+        required="true"
+        placeholder="telefone"
+        class="paginalogin-textinput1 input"
+    />
+    <input
+        type="text"
+        id="senhalogin"
+        required="true"
+        placeholder="senha"
+        class="paginalogin-textinput2 input"
+    />
+</form>
+
             <script>
-    function validarLogin() {
-        var telefoneLogin = document.getElementById('telefonelogin').value.trim();
-        var senhaLogin = document.getElementById('senhalogin').value.trim();
+    document.getElementById('Entre').addEventListener('click', function() {
+    const telefone = document.getElementById('telefonelogin').value;
+    const senha = document.getElementById('senhalogin').value;
 
-        // Pegar os cadastros armazenados no LocalStorage
-        var cadastros = JSON.parse(localStorage.getItem('cadastros')) || [];
+    fetch('cadastros.txt')
+        .then(response => response.text())
+        .then(text => {
+            const linhas = text.split('\n');
+            let loginValido = false;
 
-        // Verificar se o telefone e a senha correspondem a algum cadastro
-        var usuarioEncontrado = cadastros.find(function(cadastro) {
-            return cadastro.telefone === telefoneLogin && cadastro.senha === senhaLogin;
-        });
-
-        // Se o usuário for encontrado, redirecionar para o site
-        if (usuarioEncontrado) {
-            alert('Login bem-sucedido! Redirecionando...');
-            window.location.href = 'https://rolladie.net/';
-        } else {
-            // Exibir erro adequado
-            var usuarioExistente = cadastros.find(function(cadastro) {
-                return cadastro.telefone === telefoneLogin;
-            });
-
-            if (usuarioExistente) {
-                alert('Senha incorreta. Tente novamente.');
-            } else {
-                alert('Usuário não encontrado. Verifique o telefone e tente novamente.');
+            for (let linha of linhas) {
+                const [telefoneRegistrado, senhaRegistrada] = linha.split('|');
+                if (parseInt(telefoneRegistrado, 10) === parseInt(telefone, 10) && senha === senhaRegistrada) {
+                    loginValido = true;
+                    break;
+                }
             }
-        }
-    }
+
+            if (loginValido) {
+                window.location.href = 'https://rolladie.net/';
+            } else {
+                alert('Telefone ou senha incorretos.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao ler o arquivo de cadastros:', error);
+        });
+});
+
 </script>
           </div>
         </div>
