@@ -145,58 +145,6 @@
         </div>
       </div>
     </div>
-    <script>
-      function validarCadastro() {
-          var nome = document.getElementById('nomecompleto').value.trim();
-          var telefone = document.getElementById('telefone').value.trim();
-          var senha = document.getElementById('senha').value.trim();
-  
-          var nomeRegex = /^[A-Za-z\s]{1,50}$/;
-          if (!nomeRegex.test(nome)) {
-              alert("O nome deve conter apenas letras e espaços, com até 50 caracteres.");
-              return;
-          }
-  
-          var telefoneRegex = /^[0-9]{1,15}$/;
-          if (!telefoneRegex.test(telefone)) {
-              alert("O telefone deve conter apenas números, com no máximo 15 dígitos.");
-              return;
-          }
-  
-          if (senha.length > 8) {
-              alert("A senha deve ter no máximo 8 caracteres.");
-              return;
-          }
-  
-          if (nome.includes('|') || telefone.includes('|') || senha.includes('|')) {
-              alert("Nenhum campo pode conter o caractere '|'.");
-              return;
-          }
-  
-          var cadastro = nome + " | " + telefone + " | " + senha + " ||\n";
-          enviarCadastro(cadastro);
-      }
-  
-      function enviarCadastro(cadastro) {
-          fetch('/salvarCadastro', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ cadastro: cadastro })
-          })
-          .then(response => response.json())
-          .then(data => {
-              if (data.sucesso) {
-                  alert("Cadastro salvo com sucesso!");
-              } else {
-                  alert("Erro ao salvar o cadastro.");
-              }
-          })
-          .catch(error => {
-              console.error("Erro:", error);
-          });
-      }
-  </script>
+    
   </body>
 </html>
