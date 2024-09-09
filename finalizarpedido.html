@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Finalizar Pedido - Sabor de Casa Delivery</title>
+  <meta property="og:title" content="Finalizar Pedido - Sabor de Casa Delivery" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <style data-tag="reset-style-sheet">
+    html {
+      line-height: 1.15;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+    }
+
+    p,
+    li,
+    ul,
+    pre,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    figure,
+    blockquote,
+    figcaption {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      background-color: transparent;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    button:-moz-focus,
+    [type="button"]:-moz-focus,
+    [type="reset"]:-moz-focus,
+    [type="submit"]:-moz-focus {
+      outline: 1px dotted ButtonText;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    input {
+      padding: 2px 4px;
+    }
+
+    img {
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Inter;
+      font-size: 36px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: -10%;
+      line-height: 200%;
+      color: var(--dl-color-theme-neutral-dark);
+      background: var(--dl-color-theme-neutral-light);
+
+      fill: var(--dl-color-theme-neutral-dark);
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico:wght@400&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
+</head>
+
+<body>
+  <link rel="stylesheet" href="./style.css" />
+  <div>
+    <link href="./finalizarpedido.css" rel="stylesheet" />
+
+    <div class="paginasignup-container">
+      <header-wrapper class="header-wrapper" rootclassname="headerundefined">
+        <!--Header component-->
+        <header class="header-header headerroot-class-name">
+          <div class="header-icone">
+            <img alt="image" src="public/external/bowl-200h.png" class="header-image" />
+          </div>
+          <div class="header-titulo">
+            <h1 class="header-text1">
+              <fragment class="paginasignup-fragment2">
+                <a href="index.html">
+                  <span class="paginasignup-text4 h1">
+                    Sabor de Casa Delivery
+                  </span>
+                </a>
+              </fragment>
+            </h1>
+          </div>
+          <div class="header-botoes">
+            <button type="button" class="header-button button botao" onclick="window.location.href='paginalogin.html'">
+              <span class="botao">
+                <fragment class="paginasignup-fragment1">
+                  <span class="paginasignup-text1 botao">
+                    <span>Entrar</span>
+                    <br />
+                  </span>
+                </fragment>
+              </span>
+            </button>
+          </div>
+        </header>
+      </header-wrapper>
+      <div class="paginasignup-hero">
+        <div class="paginasignup-formulario">
+          <img alt="image" src="public/external/quadroamarelo.svg" class="paginasignup-image" />
+          <span class="paginasignup-text5 h4">
+            Carrinho
+          </span>
+          <form id="finalizarPedidoForm" class="paginasignup-form">
+            <!-- Campo Nome -->
+            <input type="text" id="nomecompleto" required="true" placeholder="nome completo" class="input" />
+
+            <!-- Forma de pagamento -->
+            <div class="checkbox-group">
+              <label>Forma de pagamento:</label><br>
+              <label>
+                <input type="radio" id="pix" name="formapagamento" value="Pix"> Pix
+              </label><br>
+              <label>
+                <input type="radio" id="dinheiro" name="formapagamento" value="dinheiro"> Dinheiro
+              </label><br>
+              <label>
+                <input type="radio" id="cartao" name="formapagamento" value="cartão"> Cartão
+              </label><br>
+            </div>
+
+            <!-- Local de retirada -->
+            <div class="checkbox-group">
+              <label>Local para retirada:</label>
+              <br>
+              <label>
+                <input type="radio" id="ccbb" name="localretirada" value="Centro Cultural Banco do Brasil (CCBB)">
+                Centro Cultural Banco do Brasil (CCBB)
+              </label>
+              <br>
+              <label>
+                <input type="radio" id="ministerio" name="localretirada" value="Ministério da Economia (Esplanada)">
+                Ministério da Economia (Esplanada)
+              </label>
+            </div>
+
+            <!-- Botão Finalizar -->
+            <button id="finalizarPedido" type="button" class="paginasignup-button">
+              <span>Finalizar Pedido</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+      document.getElementById("finalizarPedido").addEventListener("click", finalizarPedido);
+
+      function finalizarPedido() {
+        var nome = document.getElementById('nomecompleto').value.trim();
+
+        // Validação do nome
+        var nomeValido = /^[A-Za-zÀ-ÿ\s]{1,30}$/.test(nome);
+        if (!nomeValido) {
+          alert("O nome deve conter apenas letras e espaços (até 30 caracteres).");
+          return;
+        }
+
+        // Verifica quais formas de pagamento foram selecionadas
+        var formasPagamentoSelecionadas = [];
+        if (document.getElementById("pix").checked) formasPagamentoSelecionadas.push("Pix");
+        if (document.getElementById("dinheiro").checked) formasPagamentoSelecionadas.push("Dinheiro");
+        if (document.getElementById("cartao").checked) formasPagamentoSelecionadas.push("Cartão");
+
+        if (formasPagamentoSelecionadas.length === 0) {
+          alert("Por favor, selecione ao menos uma forma de pagamento.");
+          return;
+        }
+
+        // Verifica quais locais de retirada foram selecionados
+        var locaisRetiradaSelecionados = [];
+        if (document.getElementById("ccbb").checked) locaisRetiradaSelecionados.push("Centro Cultural Banco do Brasil (CCBB)");
+        if (document.getElementById("ministerio").checked) locaisRetiradaSelecionados.push("Ministério da Economia (Esplanada)");
+
+        if (locaisRetiradaSelecionados.length === 0) {
+          alert("Por favor, selecione ao menos um local de retirada.");
+          return;
+        }
+
+        // Exibir mensagem após validação
+        alert("Pedido finalizado com sucesso!\n" +
+          "Nome: " + nome + "\n" +
+          "Forma de pagamento: " + formasPagamentoSelecionadas.join(", ") + "\n" +
+          "Local de retirada: " + locaisRetiradaSelecionados.join(", "));
+      }
+    </script>
+</body>
+
+</html>
