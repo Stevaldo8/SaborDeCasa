@@ -113,13 +113,12 @@
       line-height: 200%;
       color: var(--dl-color-theme-neutral-dark);
       background: var(--dl-color-theme-neutral-light);
-
       fill: var(--dl-color-theme-neutral-dark);
     }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&amp;display=swap"
     data-tag="font" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
@@ -178,6 +177,9 @@
           <form id="finalizarPedidoForm" class="paginasignup-form">
             <!-- Campo Nome -->
             <input type="text" id="nomecompleto" required="true" placeholder="nome completo" class="input" />
+            <br>
+            <div id="imagemProduto"></div>
+            <br>
 
             <!-- Forma de pagamento -->
             <div class="checkbox-group">
@@ -219,17 +221,37 @@
 
     <!-- Script JavaScript -->
     <script>
+      // Função para pegar parâmetros da URL
+      function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+          nome: params.get('nome') || '',
+          preco: params.get('preco') || '',
+          imagem: params.get('imagem') || ''
+        };
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Pega os parâmetros da URL
+        const { nome, preco, imagem } = getQueryParams();
+
+        // Atualiza o campo nome completo com o nome do produto
+        if (nome && preco && imagem) {
+          document.getElementById('nomecompleto').value = `${nome} - R$ ${preco}`;
+
+          // Exibe a imagem do produto
+          const imagemProduto = document.createElement('img');
+          imagemProduto.src = imagem;
+          imagemProduto.alt = nome;
+          imagemProduto.style.width = '200px'; // Ajuste o tamanho da imagem conforme necessário
+          imagemProduto.style.marginLeft = '50px';
+          document.getElementById('imagemProduto').appendChild(imagemProduto);
+        }
+      });
       document.getElementById("finalizarPedido").addEventListener("click", finalizarPedido);
 
       function finalizarPedido() {
         var nome = document.getElementById('nomecompleto').value.trim();
-
-        // Validação do nome
-        var nomeValido = /^[A-Za-zÀ-ÿ\s]{1,30}$/.test(nome);
-        if (!nomeValido) {
-          alert("O nome deve conter apenas letras e espaços (até 30 caracteres).");
-          return;
-        }
 
         // Verifica quais formas de pagamento foram selecionadas
         var formasPagamentoSelecionadas = [];
