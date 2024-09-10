@@ -413,7 +413,7 @@
   height: 61px;
   padding: var(--dl-space-space-halfunit);
   z-index: 100;
-  position: absolute;
+  position: relative;
   align-self: center;
   box-shadow: 10px 5px 10px 0px rgba(136, 134, 134, 0.81);
   margin-top: auto;
